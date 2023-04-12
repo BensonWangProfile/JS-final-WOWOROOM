@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="../dist/output.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -61,7 +65,407 @@
     <!-- 好評推薦 -->
     <!---------------------- Nancy ------------------------>
     <!-- 運送方式 -->
+    <section class="container">
+      <h2 class="h2 my-8 text-center">運送方式</h2>
+      <div class="grid grid-cols-12 gap-7 pb-[72px]">
+        <div class="col-span-2"></div>
+        <div class="col-span-8">
+          <ul class="flex items-center justify-between">
+            <li class="relative">
+              <div class="round my-2">
+                <i class="fa-solid fa-cart-shopping text-center text-5xl"></i>
+              </div>
+              <div class="absolute right-6">
+                <p class="text-center text-xl">STEP.1</p>
+                <p class="text-center text-base">選購商品</p>
+              </div>
+            </li>
+            <li class="">
+              <i class="fa-solid fa-caret-right mx-[25px]"></i>
+            </li>
+            <li class="relative">
+              <div class="round my-2">
+                <i class="fa-solid fa-list-ul text-center text-5xl"></i>
+              </div>
+              <div class="absolute right-2">
+                <p class="text-center text-lg">STEP.2</p>
+                <p class="text-center text-base">填寫預定資料</p>
+              </div>
+            </li>
+            <li class="">
+              <i class="fa-solid fa-caret-right mx-[25px]"></i>
+            </li>
+            <li class="relative">
+              <div class="round my-2">
+                <i class="fa-solid fa-check text-center text-5xl"></i>
+              </div>
+              <div class="absolute right-[1.3rem]">
+                <p class="text-center text-lg">STEP.3</p>
+                <p class="text-center text-base">預定成功</p>
+              </div>
+            </li>
+            <li class="">
+              <!-- absolute top-[3.2rem] right-[10.5rem] -->
+              <i class="fa-solid fa-caret-right mx-[25px]"></i>
+            </li>
+            <li class="relative">
+              <div class="round my-2">
+                <i class="fa-solid fa-envelope text-center text-5xl"></i>
+              </div>
+              <div class="absolute right-0">
+                <p class="text-center text-lg">STEP.4</p>
+                <p class="text-center text-base">Email 付款資訊</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-span-2"></div>
+      </div>
+    </section>
+    <!-- 篩選按鈕 -->
+    <section class="container">
+      <div class="mt-[72px] grid grid-cols-4 gap-7">
+        <div class="col-span-1">
+          <select
+            name=""
+            id=""
+            class="mb-8 w-full rounded border-[1px] border-[#CED4DA] px-3 py-2"
+          >
+            <option value="全部">全部</option>
+            <option value="床架">床架</option>
+            <option value="收納">收納</option>
+            <option value="窗簾">窗簾</option>
+          </select>
+        </div>
+      </div>
+    </section>
+    <!-- 商品列表 -->
+    <section class="container">
+      <div class="list mb-[60px] grid grid-cols-4 gap-7">
+        <div class="col-span-1">
+          <div class="card">
+            <div
+              class="card-img relative h-[302px] w-full bg-[url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true)] bg-cover bg-center"
+            >
+              <div
+                class="new absolute right-[-10px] top-3 bg-black px-8 py-2 text-xl text-white"
+              >
+                新品
+              </div>
+            </div>
+            <input
+              type="button"
+              value="加入購物車"
+              class="add-to-cart h-12 w-full bg-black text-white"
+            />
+            <div class="card-body">
+              <p class="text-lg">Antony 雙人床架／雙人加大</p>
+              <p class="text-lg line-through">NT$18,000</p>
+              <p class="text-3xl">NT$12,000</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1">
+          <div class="card">
+            <div
+              class="card-img relative h-[302px] w-full bg-[url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true)] bg-cover bg-center"
+            >
+              <div
+                class="new absolute right-[-10px] top-3 bg-black px-8 py-2 text-xl text-white"
+              >
+                新品
+              </div>
+            </div>
+            <input
+              type="button"
+              value="加入購物車"
+              class="add-to-cart h-12 w-full bg-black text-white"
+            />
+            <div class="card-body">
+              <p class="text-lg">Antony 雙人床架／雙人加大</p>
+              <p class="text-lg line-through">NT$18,000</p>
+              <p class="text-3xl">NT$12,000</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1">
+          <div class="card">
+            <div
+              class="card-img relative h-[302px] w-full bg-[url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true)] bg-cover bg-center"
+            >
+              <div
+                class="new absolute right-[-10px] top-3 bg-black px-8 py-2 text-xl text-white"
+              >
+                新品
+              </div>
+            </div>
+            <input
+              type="button"
+              value="加入購物車"
+              class="add-to-cart h-12 w-full bg-black text-white"
+            />
+            <div class="card-body">
+              <p class="text-lg">Antony 雙人床架／雙人加大</p>
+              <p class="text-lg line-through">NT$18,000</p>
+              <p class="text-3xl">NT$12,000</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1">
+          <div class="card">
+            <div
+              class="card-img relative h-[302px] w-full bg-[url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true)] bg-cover bg-center"
+            >
+              <div
+                class="new absolute right-[-10px] top-3 bg-black px-8 py-2 text-xl text-white"
+              >
+                新品
+              </div>
+            </div>
+            <input
+              type="button"
+              value="加入購物車"
+              class="add-to-cart h-12 w-full bg-black text-white"
+            />
+            <div class="card-body">
+              <p class="text-lg">Antony 雙人床架／雙人加大</p>
+              <p class="text-lg line-through">NT$18,000</p>
+              <p class="text-3xl">NT$12,000</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1">
+          <div class="card">
+            <div
+              class="card-img relative h-[302px] w-full bg-[url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true)] bg-cover bg-center"
+            >
+              <div
+                class="new absolute right-[-10px] top-3 bg-black px-8 py-2 text-xl text-white"
+              >
+                新品
+              </div>
+            </div>
+            <input
+              type="button"
+              value="加入購物車"
+              class="add-to-cart h-12 w-full bg-black text-white"
+            />
+            <div class="card-body">
+              <p class="text-lg">Antony 雙人床架／雙人加大</p>
+              <p class="text-lg line-through">NT$18,000</p>
+              <p class="text-3xl">NT$12,000</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1">
+          <div class="card">
+            <div
+              class="card-img relative h-[302px] w-full bg-[url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true)] bg-cover bg-center"
+            >
+              <div
+                class="new absolute right-[-10px] top-3 bg-black px-8 py-2 text-xl text-white"
+              >
+                新品
+              </div>
+            </div>
+            <input
+              type="button"
+              value="加入購物車"
+              class="add-to-cart h-12 w-full bg-black text-white"
+            />
+            <div class="card-body">
+              <p class="text-lg">Antony 雙人床架／雙人加大</p>
+              <p class="text-lg line-through">NT$18,000</p>
+              <p class="text-3xl">NT$12,000</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1">
+          <div class="card">
+            <div
+              class="card-img relative h-[302px] w-full bg-[url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true)] bg-cover bg-center"
+            >
+              <div
+                class="new absolute right-[-10px] top-3 bg-black px-8 py-2 text-xl text-white"
+              >
+                新品
+              </div>
+            </div>
+            <input
+              type="button"
+              value="加入購物車"
+              class="add-to-cart h-12 w-full bg-black text-white"
+            />
+            <div class="card-body">
+              <p class="text-lg">Antony 雙人床架／雙人加大</p>
+              <p class="text-lg line-through">NT$18,000</p>
+              <p class="text-3xl">NT$12,000</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1">
+          <div class="card">
+            <div
+              class="card-img relative h-[302px] w-full bg-[url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true)] bg-cover bg-center"
+            >
+              <div
+                class="new absolute right-[-10px] top-3 bg-black px-8 py-2 text-xl text-white"
+              >
+                新品
+              </div>
+            </div>
+            <input
+              type="button"
+              value="加入購物車"
+              class="add-to-cart h-12 w-full bg-black text-white"
+            />
+            <div class="card-body">
+              <p class="text-lg">Antony 雙人床架／雙人加大</p>
+              <p class="text-lg line-through">NT$18,000</p>
+              <p class="text-3xl">NT$12,000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- 我的購物車 -->
+    <div class="cart bg-secondary py-12">
+      <h2 class="h2 mb-8 text-center">我的購物車</h2>
+      <div class="container mx-auto">
+        <div class="grid grid-cols-12 gap-7">
+          <div class="col-span-1"></div>
+          <!-- 購物車本體 -->
+          <div class="col-span-10">
+            <!-- 表頭 -->
+            <ul class="cart-header mb-[20px] flex w-full">
+              <li class="w-[30%]">品項</li>
+              <li class="w-[20%]">單價</li>
+              <li class="w-[20%]">數量</li>
+              <li class="w-[20%]">金額</li>
+            </ul>
+            <!-- 購買清單 -->
+            <ul class="cartList mb-[30px] w-full">
+              <li class="w-full border-b-2 border-[#BFBFBF] pb-[20px]">
+                <ul class="item flex w-full items-center">
+                  <li class="flex w-[30%] items-center pr-6">
+                    <img
+                      src="https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true"
+                      alt=""
+                      srcset=""
+                      class="mr-[15px] h-[80px] w-[80px]"
+                    />
+
+                    <p class="item-name">Antony 雙人床架／雙人加大</p>
+                  </li>
+                  <li class="w-[20%]">
+                    <p>NT$12,000</p>
+                  </li>
+                  <li class="w-[20%]">
+                    <p>1</p>
+                  </li>
+                  <li class="w-[20%]">
+                    <p>NT$12,000</p>
+                  </li>
+                  <li class="flex w-[10%] flex-row-reverse pr-7">
+                    <button type="button" class="deleteBtn">
+                      <i class="fa-solid fa-x"></i>
+                    </button>
+                  </li>
+                </ul>
+              </li>
+              <li class="w-full border-b-2 border-[#BFBFBF] pb-[20px]">
+                <ul class="item flex w-full items-center">
+                  <li class="flex w-[30%] items-center pr-7">
+                    <div
+                      class="mr-[15px] flex h-20 w-20 items-center justify-center"
+                    >
+                      <img
+                        src="https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true"
+                        alt=""
+                        srcset=""
+                        class=""
+                      />
+                    </div>
+
+                    <!-- <div
+                      class="item-img bg-containe mr-[15px] h-20 w-20 bg-[url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true)] bg-contain bg-center bg-no-repeat"
+                    >
+                      
+                    </div> -->
+                    <p class="item-name">Antony 雙人床架／雙人加大</p>
+                  </li>
+                  <li class="w-[20%]">
+                    <p>NT$12,000</p>
+                  </li>
+                  <li class="w-[20%]">
+                    <p>1</p>
+                  </li>
+                  <li class="w-[20%]">
+                    <p>NT$12,000</p>
+                  </li>
+                  <li class="flex w-[10%] flex-row-reverse pr-7">
+                    <button type="button" class="deleteBtn">
+                      <i class="fa-solid fa-x"></i>
+                    </button>
+                  </li>
+                </ul>
+              </li>
+              <li class="w-full border-b-2 border-[#BFBFBF] pb-[20px]">
+                <ul class="item flex w-full items-center">
+                  <li class="flex w-[30%] items-center pr-7">
+                    <div
+                      class="mr-[15px] flex h-20 w-20 items-center justify-center"
+                    >
+                      <img
+                        src="https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true"
+                        alt=""
+                        srcset=""
+                        class=""
+                      />
+                    </div>
+
+                    <!-- <div
+                      class="item-img bg-containe mr-[15px] h-20 w-20 bg-[url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true)] bg-contain bg-center bg-no-repeat"
+                    >
+                      
+                    </div> -->
+                    <p class="item-name">Antony 雙人床架／雙人加大</p>
+                  </li>
+                  <li class="w-[20%]">
+                    <p>NT$12,000</p>
+                  </li>
+                  <li class="w-[20%]">
+                    <p>1</p>
+                  </li>
+                  <li class="w-[20%]">
+                    <p>NT$12,000</p>
+                  </li>
+                  <li class="flex w-[10%] flex-row-reverse pr-7">
+                    <button type="button" class="deleteBtn">
+                      <i class="fa-solid fa-x"></i>
+                    </button>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <!-- 表尾 -->
+            <div class="flex items-center justify-between">
+              <button
+                type="button"
+                class="rounded border-2 border-black px-[20px] py-[10px] hover:bg-black hover:text-white"
+              >
+                刪除所有品項
+              </button>
+              <div class="flex">
+                <p class="mr-[55px]">總金額</p>
+                <p class="total">NT$13,980</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1"></div>
+        </div>
+      </div>
+    </div>
     <!---------------------- Wei ------------------------>
     <!-- 填寫預定資料 -->
   </body>
