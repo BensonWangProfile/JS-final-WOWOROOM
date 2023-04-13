@@ -6,10 +6,12 @@ module.exports = {
       center: true
     },
     extend: {
-      primary: '#301E5F',
-      secondary: '#F8F8F8',
-      lightPurple: '#6A33F8',
-      check: '#6A33FF'
+      colors: {
+        primary: '#301E5F',
+        secondary: '#F8F8F8',
+        lightPurple: '#6A33F8',
+        check: '#6A33FF'
+      }
     }
   },
   plugins: [
