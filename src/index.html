@@ -553,7 +553,9 @@
                 type="text"
                 placeholder="請輸入姓名"
                 class="w-full rounded-lg border-2 border-gray-300 p-3"
+                name="name"
               />
+              <div class="messages"></div>
             </div>
             <div class="mx-auto w-[80%]">
               <p class="p-3 pb-2">電話</p>
@@ -561,7 +563,9 @@
                 type="text"
                 placeholder="請輸入電話"
                 class="w-full rounded-lg border-2 border-gray-300 p-3"
+                name="handphone"
               />
+              <div class="messages"></div>
             </div>
             <div class="mx-auto w-[80%]">
               <p class="p-3 pb-2">Email</p>
@@ -569,7 +573,9 @@
                 type="email"
                 placeholder="請輸入Email"
                 class="w-full rounded-lg border-2 border-gray-300 p-3"
+                name="account"
               />
+              <div class="messages"></div>
             </div>
             <div class="mx-auto w-[80%]">
               <p class="p-3 pb-2">寄送地址</p>
@@ -577,21 +583,26 @@
                 type="text"
                 placeholder="請輸入寄送地址"
                 class="w-full rounded-lg border-2 border-gray-300 p-3"
+                name="address"
               />
+              <div class="messages"></div>
             </div>
             <div class="mb- mx-auto w-[80%]">
-              <p class="p-3 pb-2">姓名</p>
+              <p class="p-3 pb-2">交易方式</p>
               <select
                 class="mb-10 w-full rounded-lg border-2 border-gray-300 p-3"
+                name="payment"
               >
                 <option value="">ATM</option>
                 <option value="">信用卡</option>
                 <option value="">轉帳</option>
               </select>
+              <div class="messages"></div>
             </div>
             <div class="mx-auto w-[80%]">
               <button
                 class="mx-auto w-full rounded-lg bg-black px-8 py-4 text-center text-lg text-white"
+                type="submit"
               >
                 送出預訂資料
               </button>
@@ -611,7 +622,7 @@
       }
     </style>
   </body>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="index.js
-  "></script>
+  <script src="index.js"></script>
 </html>

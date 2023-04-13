@@ -248,3 +248,47 @@ function deleteAll() {
       console.log(err)
     })
 }
+
+// wei~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// 監聽 form 表單
+const form = document.querySelector('form')
+form.addEventListener('submit', function (e) {
+  e.preventDefault()
+  checkValue()
+  addError()
+})
+let error = validate({ username: nameInput }, constraints)
+let constraints = {
+  name: {
+    presence: { message: '必填欄位' }
+  },
+  handphone: {
+    presence: { message: '必填欄位' }
+  },
+  account: {
+    presence: { message: '必填欄位' }
+  },
+  address: {
+    presence: { message: '必填欄位' }
+  },
+  payment: {
+    presence: { message: '必填欄位' }
+  }
+}
+
+// 檢查
+function checkValue() {
+  const result = validate(form, constraints)
+  console.log(result)
+  // Object.values(result.name)
+}
+
+// function addError(messages, error) {
+//   var block = document.createElement('p')
+//   block.classList.add('help-block')
+//   block.classList.add('error')
+//   block.innerText = error
+//   console.log(block)
+//   messages.appendChild(block)
+// }
