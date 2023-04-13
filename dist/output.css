@@ -712,16 +712,16 @@ img {
   margin-bottom: 60px;
 }
 
+.mb-\[72px\] {
+  margin-bottom: 72px;
+}
+
 .mr-\[15px\] {
   margin-right: 15px;
 }
 
 .mr-\[55px\] {
   margin-right: 55px;
-}
-
-.mt-\[72px\] {
-  margin-top: 72px;
 }
 
 .flex {
@@ -740,10 +740,6 @@ img {
   height: 3rem;
 }
 
-.h-20 {
-  height: 5rem;
-}
-
 .h-\[302px\] {
   height: 302px;
 }
@@ -754,10 +750,6 @@ img {
 
 .w-10 {
   width: 2.5rem;
-}
-
-.w-20 {
-  width: 5rem;
 }
 
 .w-\[10\%\] {
@@ -798,10 +790,6 @@ img {
 
 .items-center {
   align-items: center;
-}
-
-.justify-center {
-  justify-content: center;
 }
 
 .justify-between {
@@ -870,8 +858,8 @@ img {
   background-image: url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true);
 }
 
-.bg-contain {
-  background-size: contain;
+.bg-\[url\(\$\{item\.images\}\)\] {
+  background-image: url(${item.images});
 }
 
 .bg-cover {
@@ -880,10 +868,6 @@ img {
 
 .bg-center {
   background-position: center;
-}
-
-.bg-no-repeat {
-  background-repeat: no-repeat;
 }
 
 .px-3 {

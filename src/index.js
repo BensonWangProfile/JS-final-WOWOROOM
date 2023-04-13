@@ -64,7 +64,7 @@ function renderProductList(input) {
               class="card-img relative h-[302px] w-full bg-[url('${item.images}')] bg-cover bg-center"
             >
               <div
-                class="new absolute right-[-10px] top-3 bg-black px-8 py-2 text-xl text-white"
+                class="new absolute right-[-10px] top-3 bg-black px-8 py-2 text-white"
               >
                 新品
               </div>
@@ -177,7 +177,7 @@ function renderCartList() {
   cartList.innerHTML = str
   // 計算+渲染總金額
   let totalPrice = 0
-  cartData.forEach((item) => {
+  cartData.map((item) => {
     let price = item.product.price * item.quantity
     totalPrice += price
   })
