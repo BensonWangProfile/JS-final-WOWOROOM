@@ -724,6 +724,10 @@ img {
   margin-right: 55px;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -746,6 +750,10 @@ img {
 
 .h-\[80px\] {
   height: 80px;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .w-10 {
@@ -792,6 +800,10 @@ img {
   align-items: center;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -802,6 +814,10 @@ img {
 
 .gap-7 {
   gap: 1.75rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .rounded {
@@ -858,8 +874,8 @@ img {
   background-image: url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true);
 }
 
-.bg-\[url\(\$\{item\.images\}\)\] {
-  background-image: url(${item.images});
+.bg-\[url\(\'https\:\/\/github\.com\/hexschool\/js-training\/blob\/main\/\%E7\%AC\%AC\%E4\%B9\%9D\%E9\%80\%B1\%E4\%B8\%BB\%E7\%B7\%9A\%E4\%BB\%BB\%E5\%8B\%99\%E5\%9C\%96\%E5\%BA\%AB\/ExbKbSE\.png\?raw\=true\'\)\] {
+  background-image: url('https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true');
 }
 
 .bg-cover {
