@@ -20,10 +20,12 @@ const getData = () => {
       orderData = []
       orderData.push(res.data.orders)
       // 如訂單沒資料，則不顯示刪除全部Btn
-      if (!orderData) {
+      if (orderData[0].length === 0) {
         deleteAllBtn.classList.add('hidden')
+      } else {
+        deleteAllBtn.classList.remove('hidden')
       }
-      deleteAllBtn.classList.remove('hidden')
+      console.log(orderData)
     })
     .catch((err) => {
       console.log(err)
@@ -48,8 +50,13 @@ const renderData = (data) => {
         <th>${item.user.address}</th>
         <th>${item.user.email}</th>
         <th>${product.title}</th>
-        <th>${item.updatedAt}</th>
-        <th><a>${item.paid ? '已處理' : '未處理'}<a/></th>
+        <th>${new Date(item.updatedAt * 1000)
+          .toISOString()
+          .slice(0, 10)
+          .replace('T', ' ')}</th>
+        <th><a class='underline text-lightPurple cursor-pointer' id='paid-status' data-id='${
+          item.id
+        }'>${item.paid ? '已處理' : '未處理'}<a/></th>
         <th><button id='delete-btn' data-id='${
           item.id
         }' class='text-white bg-[#C44021] hover:bg-[#e74925] w-[56px] h-[30px]'>刪除</button></th>
@@ -61,8 +68,13 @@ const renderData = (data) => {
         <th>${item.user.address}</th>
         <th>${item.user.email}</th>
         <th>${product.title}</th>
-        <th>${item.updatedAt}</th>
-        <th><a>${item.paid ? '已處理' : '未處理'}<a/></th>
+        <th>${new Date(item.updatedAt * 1000)
+          .toISOString()
+          .slice(0, 10)
+          .replace('T', ' ')}</th>
+        <th><a class='underline text-lightPurple cursor-pointer' id='paid-status' data-id='${
+          item.id
+        }'>${item.paid ? '已處理' : '未處理'}<a/></th>
         <th></th>
     </tr>`
         }
@@ -74,8 +86,13 @@ const renderData = (data) => {
         <th>${item.user.address}</th>
         <th>${item.user.email}</th>
         <th>${item.products[0].title}</th>
-        <th>${item.updatedAt}</th>
-        <th><a>${item.paid ? '已處理' : '未處理'}<a/></th>
+        <th>${new Date(item.updatedAt * 1000)
+          .toISOString()
+          .slice(0, 10)
+          .replace('T', ' ')}</th>
+        <th><a class='underline text-lightPurple cursor-pointer' id='paid-status' data-id='${
+          item.id
+        }'>${item.paid ? '已處理' : '未處理'}<a/></th>
         <th><button id='delete-btn' 
         data-id='${item.id}' 
          class='text-white bg-[#C44021] hover:bg-[#e74925] w-[56px] h-[30px]'>刪除</button></th>
@@ -151,11 +168,41 @@ const deleteBtnFn = (productId) => {
     })
 }
 
+// 切換付款狀態
+const changePaidStatus = (productId, boolean) => {
+  // eslint-disable-next-line no-undef
+  axios
+    .put(
+      `${url}${urlPath}/orders`,
+      {
+        data: {
+          id: `${productId}`,
+          paid: boolean
+        }
+      },
+      token
+    )
+    .then((res) => {
+      // console.log(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
+
 // 刪除特定訂單監聽事件
-orderList.addEventListener('click', (e) => {
+orderList.addEventListener('click', async (e) => {
   if (e.target.id === 'delete-btn') {
     const orderId = e.target.dataset.id
     deleteBtnFn(orderId)
+  }
+  if (e.target.id === 'paid-status') {
+    const orderId = e.target.dataset.id
+    const paidStatus = e.target.parentNode.textContent
+    changePaidStatus(orderId, paidStatus === '未處理')
+    // renderData 時還有些問題，沒有確實每次都重新整理
+    await getData()
+    renderData(orderData)
   }
 })
 
