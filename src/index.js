@@ -256,39 +256,42 @@ const form = document.querySelector('form')
 form.addEventListener('submit', function (e) {
   e.preventDefault()
   checkValue()
-  addError()
 })
-let error = validate({ username: nameInput }, constraints)
+// let error = validate({ username: nameInput }, constraints)
 let constraints = {
   name: {
-    presence: { message: '必填欄位' }
+    presence: { message: '^必填欄位' }
   },
   handphone: {
-    presence: { message: '必填欄位' }
+    presence: { message: '^必填欄位' }
   },
   account: {
-    presence: { message: '必填欄位' }
+    presence: { message: '^必填欄位' },
+    email: { message: '請輸入有效的email' }
   },
   address: {
-    presence: { message: '必填欄位' }
+    presence: { message: '^必填欄位' }
   },
   payment: {
-    presence: { message: '必填欄位' }
+    presence: { message: '^必填欄位' }
   }
 }
 
 // 檢查
 function checkValue() {
-  const result = validate(form, constraints)
-  console.log(result)
-  // Object.values(result.name)
+  const errors = validate(form, constraints) //驗證form
+  document.querySelectorAll("p[class='message']").forEach((item) => {
+    item.textContent = ''
+  }) // 將message設定為""
+  if (errors === undefined) {
+    // 驗證成功 => call post表單 api
+  } else {
+    // 驗證失敗，呈現在畫面上
+    console.log('errors.keys', errors.keys)
+    Object.keys(errors).forEach(function (key) {
+      // document.querySelector(`p[class*="message ${key}"]`).textContent =
+      //   errors[key]
+      console.log(document.querySelector(`p[class*='messages ${key}']`))
+    })
+  }
 }
-
-// function addError(messages, error) {
-//   var block = document.createElement('p')
-//   block.classList.add('help-block')
-//   block.classList.add('error')
-//   block.innerText = error
-//   console.log(block)
-//   messages.appendChild(block)
-// }
