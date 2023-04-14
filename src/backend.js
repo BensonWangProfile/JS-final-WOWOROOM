@@ -1,4 +1,6 @@
-// API 相關資料
+import { alertError } from './sweetAlert.js'
+
+// // API 相關資料
 const url = 'https://livejs-api.hexschool.io/api/livejs/v1/admin/'
 const urlPath = 'benson'
 const token = {
@@ -9,6 +11,7 @@ const token = {
 // HTML ID
 const orderList = document.querySelector('#order-list')
 const deleteAllBtn = document.querySelector('#deleteAll-btn')
+const orderStatus = document.querySelector('#order-status')
 let orderData = []
 
 // 取得已下單資料
@@ -22,13 +25,16 @@ const getData = () => {
       // 如訂單沒資料，則不顯示刪除全部Btn
       if (orderData[0].length === 0) {
         deleteAllBtn.classList.add('hidden')
+        orderStatus.textContent = '目前無訂單'
       } else {
         deleteAllBtn.classList.remove('hidden')
       }
       console.log(orderData)
     })
     .catch((err) => {
-      console.log(err)
+      alertError.fire({
+        titleText: err.message
+      })
     })
 }
 
@@ -147,7 +153,9 @@ const deleteAll = () => {
       renderData(orderData)
     })
     .catch((err) => {
-      console.log(err)
+      alertError.fire({
+        titleText: err.message
+      })
     })
 }
 deleteAllBtn.addEventListener('click', deleteAll)
@@ -164,7 +172,9 @@ const deleteBtnFn = (productId) => {
       renderData(orderData)
     })
     .catch((err) => {
-      console.log(err)
+      alertError.fire({
+        titleText: err.message
+      })
     })
 }
 
@@ -186,7 +196,9 @@ const changePaidStatus = (productId, boolean) => {
       // console.log(res)
     })
     .catch((err) => {
-      console.log(err)
+      alertError.fire({
+        titleText: err.message
+      })
     })
 }
 
