@@ -153,8 +153,11 @@ function getCartList() {
 // 加入購物車
 function addToCart(e) {
   const click = e.target.getAttribute('class')
-  // console.log(click)
-  if (click !== 'add-to-cart h-12 w-full mb-2 bg-black text-white') {
+  console.log(click)
+  if (
+    click !==
+    'add-to-cart cursor-pointer hover:bg-primary h-12 w-full mb-2 bg-black text-white'
+  ) {
     return
   }
   const id = e.target.parentNode.parentNode.getAttribute('data-id')
