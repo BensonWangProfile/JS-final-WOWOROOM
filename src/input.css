@@ -19,7 +19,7 @@
 
 @layer components {
   .round {
-    @apply flex h-28 w-28 items-center justify-center rounded-full border-4 border-black;
+    @apply flex h-24 w-24 items-center justify-center rounded-full border-4 border-black;
     /* width: 115px;
     height: 115px;
     border: #000 3px solid; */
