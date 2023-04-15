@@ -591,8 +591,8 @@ img {
 
 .round {
   display: flex;
-  height: 7rem;
-  width: 7rem;
+  height: 6rem;
+  width: 6rem;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
@@ -640,16 +640,8 @@ img {
   right: 1.3rem;
 }
 
-.right-\[10\.5rem\] {
-  right: 10.5rem;
-}
-
 .top-3 {
   top: 0.75rem;
-}
-
-.top-\[3\.2rem\] {
-  top: 3.2rem;
 }
 
 .col-span-1 {
@@ -728,6 +720,10 @@ img {
   margin-bottom: 72px;
 }
 
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
 .ml-4 {
   margin-left: 1rem;
 }
@@ -744,8 +740,8 @@ img {
   margin-right: 55px;
 }
 
-.ml-3 {
-  margin-left: 0.75rem;
+.block {
+  display: block;
 }
 
 .flex {
@@ -764,6 +760,10 @@ img {
   height: 3rem;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .h-\[100px\] {
   height: 100px;
 }
@@ -780,8 +780,16 @@ img {
   height: 80px;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .w-10 {
   width: 2.5rem;
+}
+
+.w-20 {
+  width: 5rem;
 }
 
 .w-\[10\%\] {
@@ -790,6 +798,10 @@ img {
 
 .w-\[100px\] {
   width: 100px;
+}
+
+.w-\[160px\] {
+  width: 160px;
 }
 
 .w-\[20\%\] {
@@ -824,16 +836,16 @@ img {
   width: 100%;
 }
 
-.w-\[85\%\] {
-  width: 85%;
-}
-
 .min-w-\[350px\] {
   min-width: 350px;
 }
 
 .cursor-grab {
   cursor: grab;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .grid-cols-1 {
@@ -860,6 +872,10 @@ img {
   align-items: center;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -874,6 +890,10 @@ img {
 
 .gap-7 {
   gap: 1.75rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .overflow-x-scroll {
@@ -945,10 +965,6 @@ img {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[url\(\'\$\{item\.images\}\'\)\] {
-  background-image: url('${item.images}');
-}
-
 .bg-\[url\(https\:\/\/github\.com\/hexschool\/js-training\/blob\/main\/\%E7\%AC\%AC\%E4\%B9\%9D\%E9\%80\%B1\%E4\%B8\%BB\%E7\%B7\%9A\%E4\%BB\%BB\%E5\%8B\%99\%E5\%9C\%96\%E5\%BA\%AB\/ExbKbSE\.png\?raw\=true\)\] {
   background-image: url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true);
 }
@@ -959,6 +975,11 @@ img {
 
 .bg-center {
   background-position: center;
+}
+
+.object-fill {
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 
 .p-3 {
@@ -1033,6 +1054,10 @@ img {
   padding-right: 1.75rem;
 }
 
+.pr-\[30px\] {
+  padding-right: 30px;
+}
+
 .pt-10 {
   padding-top: 2.5rem;
 }
@@ -1055,9 +1080,9 @@ img {
   line-height: 2.25rem;
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-\[1\.25rem\] {
@@ -1109,14 +1134,14 @@ img {
   color: rgb(106 51 255 / var(--tw-text-opacity));
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
 .text-red-600 {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .line-through {
@@ -1130,6 +1155,11 @@ img {
 .hover\:bg-black:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-primary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(48 30 95 / var(--tw-bg-opacity));
 }
 
 .hover\:text-white:hover {
