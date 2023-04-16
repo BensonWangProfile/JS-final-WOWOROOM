@@ -1,3 +1,6 @@
+import { alertError } from './sweetAlert.js'
+Swal.fire('Hello World')
+
 // 基礎資料
 const baseUrl = 'https://livejs-api.hexschool.io/'
 const apiPath = 'nancy20230412'
@@ -70,9 +73,15 @@ function getProductList() {
       console.log(res.data.products)
       productData = res.data.products
       renderProductList()
+      alertError.fire({
+        titleText: res.message
+      })
     })
     .catch((error) => {
       console.log(error.response)
+      alertError.fire({
+        titleText: error.message
+      })
     })
 }
 

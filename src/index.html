@@ -8,13 +8,18 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="../dist/output.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="../node_modules/sweetalert2/dist/sweetalert2.css"
+    />
+    <link rel="stylesheet" href="../dist/output.css" />
     <title>WOWOROOM</title>
   </head>
   <body>
@@ -233,7 +238,18 @@
     <!---------------------- Wei ------------------------>
     <!-- 填寫預定資料 -->
   </body>
+  <!-- axios -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- sweetAlert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module" src="./sweetAlert.js"></script>
+  <!-- <script
+    type="module"
+    src="../node_modules/sweetalert2/dist/sweetalert2.min.js"
+  ></script> -->
+  <!-- <script type="module">
+    import Swal from '../node_modules/sweetalert2/src/sweetalert2.js'
+  </script> -->
   <script src="index.js
   "></script>
 </html>
