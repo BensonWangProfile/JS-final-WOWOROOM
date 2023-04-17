@@ -1,4 +1,4 @@
-import { alertError } from './sweetAlert.js'
+import { alertError, Toast } from './sweetAlert.js'
 
 // // API 相關資料
 const url = 'https://livejs-api.hexschool.io/api/livejs/v1/admin/'
@@ -151,6 +151,10 @@ const deleteAll = () => {
       const forChartData = filterData(orderData)
       showChart(forChartData)
       renderData(orderData)
+      Toast.fire({
+        icon: 'success',
+        title: '成功刪除全部訂單'
+      })
     })
     .catch((err) => {
       alertError.fire({
@@ -170,6 +174,10 @@ const deleteBtnFn = (productId) => {
       const forChartData = filterData(orderData)
       showChart(forChartData)
       renderData(orderData)
+      Toast.fire({
+        icon: 'success',
+        title: '成功刪除訂單'
+      })
     })
     .catch((err) => {
       alertError.fire({
@@ -211,8 +219,11 @@ orderList.addEventListener('click', async (e) => {
   if (e.target.id === 'paid-status') {
     const orderId = e.target.dataset.id
     const paidStatus = e.target.parentNode.textContent
+    Toast.fire({
+      icon: 'success',
+      title: '成功修改訂單狀態'
+    })
     changePaidStatus(orderId, paidStatus === '未處理')
-    // renderData 時還有些問題，沒有確實每次都重新整理
     await getData()
     renderData(orderData)
   }
