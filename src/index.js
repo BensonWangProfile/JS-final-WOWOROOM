@@ -308,6 +308,7 @@ form.addEventListener('submit', function (e) {
   e.preventDefault()
   checkValue()
 })
+
 // let error = validate({ username: nameInput }, constraints)
 const constraints = {
   name: {
@@ -320,9 +321,13 @@ const constraints = {
   handphone: {
     presence: { message: '^必填欄位' },
     length: {
-      is: 10, // 設定姓名最少兩個字
+      // is: 10, // 設定一定要十碼
       message: '^請輸入10碼'
-    }
+    },
+    format: {
+        pattern: "^09\\d{8}$",
+        message: "^請輸入09開頭手機號碼，ex:0912345678，共十碼"
+      }
   },
   account: {
     presence: { message: '^必填欄位' },
@@ -331,11 +336,46 @@ const constraints = {
   address: {
     presence: { message: '^必填欄位' },
     length: {
-      minimum: 10, // 設定十個字
+      minimum: 8, // 設定8個字最少
       message: '^請輸入正確地址'
     }
   }
 }
+
+const toastAlertOk = () => {
+  const Toast = Swal.mixin({
+    toast: true,
+    showConfirmButton: false,
+    timer: 10000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    }
+  });
+
+  Toast.fire({
+    icon: "success",
+    title: "成功送出訂單"
+  });
+};
+const toastAlertCartNoNum = () => {
+  const Toast = Swal.mixin({
+    toast: true,
+    showConfirmButton: false,
+    timer: 10000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    }
+  });
+
+  Toast.fire({
+    icon: "error",
+    title: "當前您的購物車沒有訂單"
+  });
+};
 
 // 檢查
 function checkValue() {
@@ -367,11 +407,18 @@ function checkValue() {
         // 成功會回傳的內容
         console.log(obj)
         console.log(response)
+        toastAlertOk()
+        getCartList()
+
       })
       .catch(function (error) {
         // 失敗會回傳的內容
         console.log(error)
         console.log(obj)
+        if(error.response.data.message==="當前購物車內沒有產品，所以無法送出訂單 RRR ((((；゜Д゜)))"){
+          toastAlertCartNoNum()
+        }
+
       })
   } else {
     // 驗證失敗，呈現在畫面上
