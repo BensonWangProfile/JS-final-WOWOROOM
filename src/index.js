@@ -274,6 +274,7 @@ function deleteItem(e) {
 function deleteAll() {
   if (cartData.length === 0) {
     alert('購物車裡沒有商品')
+    return
   }
   // eslint-disable-next-line no-undef
   axios
