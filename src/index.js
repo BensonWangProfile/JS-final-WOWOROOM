@@ -1,7 +1,15 @@
+import { alertError } from './sweetAlert.js'
+// Swal.fire('Hello World')
+
 // 基礎資料
-const baseUrl = 'https://livejs-api.hexschool.io/'
-const apiPath = 'nancy20230412'
-// const token = 'kaDEO9MFd9Th490SfUyAz5QXjto1'
+const url = 'https://livejs-api.hexschool.io/api/livejs/v1/customer/'
+const urlPath = 'benson'
+// eslint-disable-next-line no-unused-vars
+const token = {
+  headers: {
+    Authorization: 'BFzjqCpJPlT5Owb5TIsGnbsEs1x1'
+  }
+}
 
 // 綁定DOM元素
 
@@ -47,7 +55,7 @@ function renderProductList(input) {
             </div>
             <input
               type="button"
-              value="加入購物車"
+              value="加入購物車" id="add-to-cart"
               class="add-to-cart cursor-pointer hover:bg-primary h-12 w-full mb-2 bg-black text-white"
             />
             <div class="card-body">
@@ -65,7 +73,7 @@ function renderProductList(input) {
 function getProductList() {
   // eslint-disable-next-line no-undef
   axios
-    .get(`${baseUrl}api/livejs/v1/customer/${apiPath}/products`)
+    .get(`${url}${urlPath}/products`)
     .then((res) => {
       // console.log(res.data.products)
       productData = res.data.products
@@ -73,6 +81,9 @@ function getProductList() {
     })
     .catch((error) => {
       console.log(error.response)
+      alertError.fire({
+        titleText: error.message
+      })
     })
 }
 
@@ -109,7 +120,7 @@ function renderCartList() {
                     <p>NT$${item.product.price}</p>
                   </li>
                   <li class="w-[20%]">
-                    <input type="number" value="${item.quantity}" class="edit-num w-10 border-2 border-gray-300 rounded" palceholder="1"/>
+                    <input type="number" value="${item.quantity}" id="edit-num" class="edit-num w-10 border-2 border-gray-300 rounded" palceholder="1"/>
                   </li>
                   <li class="w-[20%]">
                     <p>NT$${price}</p>
@@ -137,7 +148,7 @@ function renderCartList() {
 function getCartList() {
   // eslint-disable-next-line no-undef
   axios
-    .get(`${baseUrl}api/livejs/v1/customer/${apiPath}/carts`)
+    .get(`${url}${urlPath}/carts`)
     .then((res) => {
       // console.log(res)
       cartData = res.data.carts
@@ -147,17 +158,17 @@ function getCartList() {
     })
     .catch((err) => {
       console.log(err)
+      alertError.fire({
+        titleText: err.message
+      })
     })
 }
 
 // 加入購物車
 function addToCart(e) {
-  const click = e.target.getAttribute('class')
-  // console.log(click)
-  if (
-    click !==
-    'add-to-cart cursor-pointer hover:bg-primary h-12 w-full mb-2 bg-black text-white'
-  ) {
+  const click = e.target.getAttribute('id')
+  console.log(click)
+  if (click !== 'add-to-cart') {
     return
   }
   const id = e.target.parentNode.parentNode.getAttribute('data-id')
@@ -171,7 +182,7 @@ function addToCart(e) {
   // console.log(obj);
   // eslint-disable-next-line no-undef
   axios
-    .post(`${baseUrl}api/livejs/v1/customer/${apiPath}/carts`, obj)
+    .post(`${url}${urlPath}/carts`, obj)
     .then((res) => {
       // 檢查新增商品是否已存在購物車
       const idArr = cartData.map((item) => {
@@ -181,7 +192,9 @@ function addToCart(e) {
       if (idArr.indexOf(id) !== -1) {
         alert('購物車已有該項商品，請到購物車修改數量')
       } else {
-        alert('新增成功')
+        // alert('新增成功')
+        // eslint-disable-next-line no-undef
+        Swal.fire('新增成功', '感謝您的支持')
       }
       console.log(res)
 
@@ -189,6 +202,9 @@ function addToCart(e) {
     })
     .catch((err) => {
       console.log(err)
+      alertError.fire({
+        titleText: err.message
+      })
     })
 }
 // ❌
@@ -198,7 +214,7 @@ function editNum(e) {
   const cartId =
     e.target.parentNode.parentNode.parentNode.getAttribute('data-id')
   // console.log(id);
-  if (e.target.getAttribute('class') !== 'edit-num w-10') {
+  if (e.target.getAttribute('id') !== 'edit-num') {
     return
   }
   console.log(num)
@@ -211,13 +227,18 @@ function editNum(e) {
   console.log(obj)
   // eslint-disable-next-line no-undef
   axios
-    .patch(`${baseUrl}api/livejs/v1/customer/${apiPath}/carts`, obj)
+    .patch(`${url}${urlPath}/carts`, obj)
     .then((res) => {
       console.log(res)
       getCartList()
+      // eslint-disable-next-line no-undef
+      Swal.fire('修改成功')
     })
     .catch((err) => {
       console.log(err)
+      alertError.fire({
+        titleText: err.message
+      })
     })
 }
 
@@ -233,14 +254,19 @@ function deleteItem(e) {
   }
   // eslint-disable-next-line no-undef
   axios
-    .delete(`${baseUrl}api/livejs/v1/customer/${apiPath}/carts/${id}`)
+    .delete(`${url}${urlPath}/carts/${id}`)
     .then((res) => {
       console.log(res)
-      alert('刪除成功')
+      // alert('刪除成功')
       getCartList()
+      // eslint-disable-next-line no-undef
+      Swal.fire('刪除成功')
     })
     .catch((err) => {
       console.log(err)
+      alertError.fire({
+        titleText: err.message
+      })
     })
 }
 
@@ -251,13 +277,18 @@ function deleteAll() {
   }
   // eslint-disable-next-line no-undef
   axios
-    .delete(`${baseUrl}api/livejs/v1/customer/${apiPath}/carts`)
+    .delete(`${url}${urlPath}/carts`)
     .then((res) => {
       console.log(res)
       getCartList()
+      // eslint-disable-next-line no-undef
+      Swal.fire('已刪除全部商品', '購物車裡沒有商品', 'love')
     })
     .catch((err) => {
       console.log(err)
+      alertError.fire({
+        titleText: err.message
+      })
     })
 }
 
