@@ -193,6 +193,7 @@ function addToCart(e) {
         alert('購物車已有該項商品，請到購物車修改數量')
       } else {
         // alert('新增成功')
+        // eslint-disable-next-line no-undef
         Swal.fire('新增成功', '感謝您的支持')
       }
       console.log(res)
@@ -230,6 +231,7 @@ function editNum(e) {
     .then((res) => {
       console.log(res)
       getCartList()
+      // eslint-disable-next-line no-undef
       Swal.fire('修改成功')
     })
     .catch((err) => {
@@ -257,6 +259,7 @@ function deleteItem(e) {
       console.log(res)
       // alert('刪除成功')
       getCartList()
+      // eslint-disable-next-line no-undef
       Swal.fire('刪除成功')
     })
     .catch((err) => {
@@ -278,6 +281,7 @@ function deleteAll() {
     .then((res) => {
       console.log(res)
       getCartList()
+      // eslint-disable-next-line no-undef
       Swal.fire('已刪除全部商品', '購物車裡沒有商品', 'love')
     })
     .catch((err) => {
