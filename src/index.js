@@ -80,7 +80,7 @@ function getProductList() {
       renderProductList()
     })
     .catch((error) => {
-      console.log(error.response)
+      // console.log(error.response)
       alertError.fire({
         titleText: error.message
       })
@@ -157,7 +157,7 @@ function getCartList() {
       // totalPrice()
     })
     .catch((err) => {
-      console.log(err)
+      // console.log(err)
       alertError.fire({
         titleText: err.message
       })
@@ -167,12 +167,12 @@ function getCartList() {
 // 加入購物車
 function addToCart(e) {
   const click = e.target.getAttribute('id')
-  console.log(click)
+  // console.log(click)
   if (click !== 'add-to-cart') {
     return
   }
   const id = e.target.parentNode.parentNode.getAttribute('data-id')
-  console.log(id)
+  // console.log(id)
   const obj = {
     data: {
       productId: id,
@@ -196,12 +196,12 @@ function addToCart(e) {
         // eslint-disable-next-line no-undef
         Swal.fire('新增成功', '感謝您的支持')
       }
-      console.log(res)
+      // console.log(res)
 
       getCartList()
     })
     .catch((err) => {
-      console.log(err)
+      // console.log(err)
       alertError.fire({
         titleText: err.message
       })
@@ -217,25 +217,25 @@ function editNum(e) {
   if (e.target.getAttribute('id') !== 'edit-num') {
     return
   }
-  console.log(num)
+  // console.log(num)
   const obj = {
     data: {
       id: cartId,
       quantity: num
     }
   }
-  console.log(obj)
+  // console.log(obj)
   // eslint-disable-next-line no-undef
   axios
     .patch(`${url}${urlPath}/carts`, obj)
     .then((res) => {
-      console.log(res)
+      // console.log(res)
       getCartList()
       // eslint-disable-next-line no-undef
       Swal.fire('修改成功')
     })
     .catch((err) => {
-      console.log(err)
+      // console.log(err)
       alertError.fire({
         titleText: err.message
       })
@@ -247,8 +247,8 @@ function deleteItem(e) {
   const btn = e.target.parentNode.getAttribute('class')
   const id =
     e.target.parentNode.parentNode.parentNode.parentNode.getAttribute('data-id')
-  console.log(btn)
-  console.log(id)
+  // console.log(btn)
+  // console.log(id)
   if (btn !== 'deleteBtn') {
     return
   }
@@ -256,14 +256,14 @@ function deleteItem(e) {
   axios
     .delete(`${url}${urlPath}/carts/${id}`)
     .then((res) => {
-      console.log(res)
+      // console.log(res)
       // alert('刪除成功')
       getCartList()
       // eslint-disable-next-line no-undef
       Swal.fire('刪除成功')
     })
     .catch((err) => {
-      console.log(err)
+      // console.log(err)
       alertError.fire({
         titleText: err.message
       })
@@ -274,18 +274,19 @@ function deleteItem(e) {
 function deleteAll() {
   if (cartData.length === 0) {
     alert('購物車裡沒有商品')
+    return
   }
   // eslint-disable-next-line no-undef
   axios
     .delete(`${url}${urlPath}/carts`)
     .then((res) => {
-      console.log(res)
+      // console.log(res)
       getCartList()
       // eslint-disable-next-line no-undef
       Swal.fire('已刪除全部商品', '購物車裡沒有商品', 'love')
     })
     .catch((err) => {
-      console.log(err)
+      // console.log(err)
       alertError.fire({
         titleText: err.message
       })
@@ -307,6 +308,7 @@ form.addEventListener('submit', function (e) {
   e.preventDefault()
   checkValue()
 })
+
 // let error = validate({ username: nameInput }, constraints)
 const constraints = {
   name: {
@@ -319,9 +321,13 @@ const constraints = {
   handphone: {
     presence: { message: '^必填欄位' },
     length: {
-      is: 10, // 設定姓名最少兩個字
+      // is: 10, // 設定一定要十碼
       message: '^請輸入10碼'
-    }
+    },
+    format: {
+        pattern: "^09\\d{8}$",
+        message: "^請輸入09開頭手機號碼，ex:0912345678，共十碼"
+      }
   },
   account: {
     presence: { message: '^必填欄位' },
@@ -330,11 +336,46 @@ const constraints = {
   address: {
     presence: { message: '^必填欄位' },
     length: {
-      minimum: 10, // 設定十個字
+      minimum: 8, // 設定8個字最少
       message: '^請輸入正確地址'
     }
   }
 }
+
+const toastAlertOk = () => {
+  const Toast = Swal.mixin({
+    toast: true,
+    showConfirmButton: false,
+    timer: 10000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    }
+  });
+
+  Toast.fire({
+    icon: "success",
+    title: "成功送出訂單"
+  });
+};
+const toastAlertCartNoNum = () => {
+  const Toast = Swal.mixin({
+    toast: true,
+    showConfirmButton: false,
+    timer: 10000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    }
+  });
+
+  Toast.fire({
+    icon: "error",
+    title: "當前您的購物車沒有訂單"
+  });
+};
 
 // 檢查
 function checkValue() {
@@ -366,11 +407,18 @@ function checkValue() {
         // 成功會回傳的內容
         console.log(obj)
         console.log(response)
+        toastAlertOk()
+        getCartList()
+
       })
       .catch(function (error) {
         // 失敗會回傳的內容
         console.log(error)
         console.log(obj)
+        if(error.response.data.message==="當前購物車內沒有產品，所以無法送出訂單 RRR ((((；゜Д゜)))"){
+          toastAlertCartNoNum()
+        }
+
       })
   } else {
     // 驗證失敗，呈現在畫面上
