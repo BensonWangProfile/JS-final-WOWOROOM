@@ -345,7 +345,7 @@ const toastAlertOk = () => {
   const Toast = Swal.mixin({
     toast: true,
     showConfirmButton: false,
-    timer: 10000,
+    timer: 3000,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.addEventListener("mouseenter", Swal.stopTimer);
@@ -362,7 +362,7 @@ const toastAlertCartNoNum = () => {
   const Toast = Swal.mixin({
     toast: true,
     showConfirmButton: false,
-    timer: 10000,
+    timer: 3000,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.addEventListener("mouseenter", Swal.stopTimer);
