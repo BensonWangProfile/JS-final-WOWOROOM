@@ -80,7 +80,7 @@ function getProductList() {
       renderProductList()
     })
     .catch((error) => {
-      console.log(error.response)
+      // console.log(error.response)
       alertError.fire({
         titleText: error.message
       })
@@ -157,7 +157,7 @@ function getCartList() {
       // totalPrice()
     })
     .catch((err) => {
-      console.log(err)
+      // console.log(err)
       alertError.fire({
         titleText: err.message
       })
@@ -167,12 +167,12 @@ function getCartList() {
 // 加入購物車
 function addToCart(e) {
   const click = e.target.getAttribute('id')
-  console.log(click)
+  // console.log(click)
   if (click !== 'add-to-cart') {
     return
   }
   const id = e.target.parentNode.parentNode.getAttribute('data-id')
-  console.log(id)
+  // console.log(id)
   const obj = {
     data: {
       productId: id,
@@ -190,18 +190,19 @@ function addToCart(e) {
       })
       // console.log(idArr)
       if (idArr.indexOf(id) !== -1) {
-        alert('購物車已有該項商品，請到購物車修改數量')
+        // alert('購物車已有該項商品，請到購物車修改數量')
+        Swal.fire('購物車已有該項商品，請到購物車修改數量')
       } else {
         // alert('新增成功')
         // eslint-disable-next-line no-undef
         Swal.fire('新增成功', '感謝您的支持')
       }
-      console.log(res)
+      // console.log(res)
 
       getCartList()
     })
     .catch((err) => {
-      console.log(err)
+      // console.log(err)
       alertError.fire({
         titleText: err.message
       })
@@ -217,25 +218,25 @@ function editNum(e) {
   if (e.target.getAttribute('id') !== 'edit-num') {
     return
   }
-  console.log(num)
+  // console.log(num)
   const obj = {
     data: {
       id: cartId,
       quantity: num
     }
   }
-  console.log(obj)
+  // console.log(obj)
   // eslint-disable-next-line no-undef
   axios
     .patch(`${url}${urlPath}/carts`, obj)
     .then((res) => {
-      console.log(res)
+      // console.log(res)
       getCartList()
       // eslint-disable-next-line no-undef
       Swal.fire('修改成功')
     })
     .catch((err) => {
-      console.log(err)
+      // console.log(err)
       alertError.fire({
         titleText: err.message
       })
@@ -247,8 +248,8 @@ function deleteItem(e) {
   const btn = e.target.parentNode.getAttribute('class')
   const id =
     e.target.parentNode.parentNode.parentNode.parentNode.getAttribute('data-id')
-  console.log(btn)
-  console.log(id)
+  // console.log(btn)
+  // console.log(id)
   if (btn !== 'deleteBtn') {
     return
   }
@@ -256,14 +257,14 @@ function deleteItem(e) {
   axios
     .delete(`${url}${urlPath}/carts/${id}`)
     .then((res) => {
-      console.log(res)
+      // console.log(res)
       // alert('刪除成功')
       getCartList()
       // eslint-disable-next-line no-undef
       Swal.fire('刪除成功')
     })
     .catch((err) => {
-      console.log(err)
+      // console.log(err)
       alertError.fire({
         titleText: err.message
       })
@@ -273,19 +274,21 @@ function deleteItem(e) {
 // 刪除全部購物車
 function deleteAll() {
   if (cartData.length === 0) {
-    alert('購物車裡沒有商品')
+    // alert('購物車裡沒有商品')
+    Swal.fire('購物車裡沒有商品')
+    return
   }
   // eslint-disable-next-line no-undef
   axios
     .delete(`${url}${urlPath}/carts`)
     .then((res) => {
-      console.log(res)
+      // console.log(res)
       getCartList()
       // eslint-disable-next-line no-undef
-      Swal.fire('已刪除全部商品', '購物車裡沒有商品', 'love')
+      Swal.fire('已刪除全部商品', '購物車裡沒有商品')
     })
     .catch((err) => {
-      console.log(err)
+      // console.log(err)
       alertError.fire({
         titleText: err.message
       })
