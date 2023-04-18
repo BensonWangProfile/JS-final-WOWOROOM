@@ -15,4 +15,22 @@
   img {
     max-width: 100%;
   }
+  table,
+  thead,
+  th,
+  tr {
+    border: 1px solid black;
+  }
+  th {
+    padding: 12px 16px;
+  }
+}
+
+@layer components {
+  .round {
+    @apply flex h-24 w-24 items-center justify-center rounded-full border-4 border-black;
+    /* width: 115px;
+    height: 115px;
+    border: #000 3px solid; */
+  }
 }
