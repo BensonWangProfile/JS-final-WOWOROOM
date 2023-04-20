@@ -12,6 +12,7 @@ const token = {
 const orderList = document.querySelector('#order-list')
 const deleteAllBtn = document.querySelector('#deleteAll-btn')
 const orderStatus = document.querySelector('#order-status')
+const chart = document.querySelector('#chart')
 let orderData = []
 
 // 取得已下單資料
@@ -25,11 +26,12 @@ const getData = () => {
       // 如訂單沒資料，則不顯示刪除全部Btn
       if (orderData[0].length === 0) {
         deleteAllBtn.classList.add('hidden')
-        orderStatus.textContent = '目前無訂單'
+        chart.classList.add('hidden')
+        orderStatus.textContent = '🔥目前無訂單🔥'
       } else {
         deleteAllBtn.classList.remove('hidden')
+        chart.classList.remove('hidden')
       }
-      console.log(orderData)
     })
     .catch((err) => {
       alertError.fire({
@@ -45,65 +47,28 @@ const renderData = (data) => {
     orderList.innerHTML = orderInfo
     return
   }
-  // item.updatedAt 需要判斷產品下單時間
   data[0].forEach((item) => {
-    if (item.products.length !== 1) {
-      item.products.forEach((product, index) => {
-        if (index === 0) {
-          orderInfo += `<tr>
-        <th>${item.createdAt}</th>
-        <th class='text-left'>${item.user.name}<br/>${item.user.tel}</th>
-        <th>${item.user.address}</th>
-        <th>${item.user.email}</th>
-        <th>${product.title}</th>
-        <th>${new Date(item.updatedAt * 1000)
-          .toISOString()
-          .slice(0, 10)
-          .replace('T', ' ')}</th>
-        <th><a class='underline text-lightPurple cursor-pointer' id='paid-status' data-id='${
-          item.id
-        }'>${item.paid ? '已處理' : '未處理'}<a/></th>
-        <th><button id='delete-btn' data-id='${
-          item.id
-        }' class='text-white bg-[#C44021] hover:bg-[#e74925] w-[56px] h-[30px]'>刪除</button></th>
-    </tr>`
-        } else {
-          orderInfo += `<tr>
-        <th></th>
-        <th class='text-left'>${item.user.name}<br/>${item.user.tel}</th>
-        <th>${item.user.address}</th>
-        <th>${item.user.email}</th>
-        <th>${product.title}</th>
-        <th>${new Date(item.updatedAt * 1000)
-          .toISOString()
-          .slice(0, 10)
-          .replace('T', ' ')}</th>
-        <th><a class='underline text-lightPurple cursor-pointer' id='paid-status' data-id='${
-          item.id
-        }'>${item.paid ? '已處理' : '未處理'}<a/></th>
-        <th></th>
-    </tr>`
-        }
-      })
-    } else {
-      orderInfo += `<tr>
-        <th>${item.createdAt}</th>
-        <th class='text-left'>${item.user.name}<br/>${item.user.tel}</th>
-        <th>${item.user.address}</th>
-        <th>${item.user.email}</th>
-        <th>${item.products[0].title}</th>
-        <th>${new Date(item.updatedAt * 1000)
-          .toISOString()
-          .slice(0, 10)
-          .replace('T', ' ')}</th>
-        <th><a class='underline text-lightPurple cursor-pointer' id='paid-status' data-id='${
-          item.id
-        }'>${item.paid ? '已處理' : '未處理'}<a/></th>
-        <th><button id='delete-btn' 
-        data-id='${item.id}' 
-         class='text-white bg-[#C44021] hover:bg-[#e74925] w-[56px] h-[30px]'>刪除</button></th>
-    </tr>`
-    }
+    let productList = ''
+    item.products.forEach((product) => {
+      productList += `<p>${product.title}</p>`
+    })
+    orderInfo += `<tr>
+      <th>${item.createdAt}</th>
+      <th class='text-left'>${item.user.name}<br/>${item.user.tel}</th>
+      <th>${item.user.address}</th>
+      <th>${item.user.email}</th>
+      <th class='text-left'>${productList}</th>
+      <th>${new Date(item.updatedAt * 1000)
+        .toISOString()
+        .slice(0, 10)
+        .replace('T', ' ')}</th>
+      <th><a class='underline text-lightPurple cursor-pointer' id='paid-status' data-id='${
+        item.id
+      }'>${item.paid ? '已處理' : '未處理'}<a/></th>
+      <th><button id='delete-btn' data-id='${
+        item.id
+      }' class='text-white bg-[#C44021] hover:bg-[#e74925] w-[56px] h-[30px]'>刪除</button></th>
+  </tr>`
   })
   orderList.innerHTML = orderInfo
 }
@@ -125,6 +90,7 @@ const showChart = (data) => {
     // }
   })
   // eslint-disable-next-line no-undef
+  d3.selectAll('.c3-chart-arc text').style('font-size', '16px')
 }
 
 // category | title 丟入 type 可以切換
@@ -201,7 +167,10 @@ const changePaidStatus = (productId, boolean) => {
       token
     )
     .then((res) => {
-      // console.log(res)
+      return getData()
+    })
+    .then(() => {
+      renderData(orderData)
     })
     .catch((err) => {
       alertError.fire({
@@ -211,7 +180,7 @@ const changePaidStatus = (productId, boolean) => {
 }
 
 // 刪除特定訂單監聽事件
-orderList.addEventListener('click', async (e) => {
+orderList.addEventListener('click', (e) => {
   if (e.target.id === 'delete-btn') {
     const orderId = e.target.dataset.id
     deleteBtnFn(orderId)
@@ -224,8 +193,6 @@ orderList.addEventListener('click', async (e) => {
       title: '成功修改訂單狀態'
     })
     changePaidStatus(orderId, paidStatus === '未處理')
-    await getData()
-    renderData(orderData)
   }
 })
 
