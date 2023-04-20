@@ -18,10 +18,10 @@
     <!-- Navbar -->
     <section>
       <div
-        class="container flex flex-row items-center justify-between pb-9 pt-10"
+        class="container flex flex-row items-center justify-between px-5 pb-9 pt-10 xl:px-0"
       >
         <h1 class="text-2xl font-bold">WOWOROOM</h1>
-        <ul class="flex flex-row items-center gap-12">
+        <ul class="flex flex-row items-center gap-12 text-[20px]">
           <li><a href="#" class="focus:text-lightPurple">後台管理</a></li>
           <li><a href="#" class="focus:text-lightPurple">管理員登入</a></li>
         </ul>
@@ -34,7 +34,7 @@
       <div id="chart"></div>
     </section>
     <!-- 後台表單 -->
-    <section class="container flex flex-col items-start">
+    <section class="container flex flex-col items-start lg:px-5 xl:px-0">
       <!-- 全部刪除 -->
       <button
         class="mb-[12px] self-end rounded-[4px] border border-black px-5 py-[10px] hover:bg-black hover:text-white"
@@ -43,21 +43,23 @@
       >
         清除全部訂單
       </button>
-      <table class="w-full text-[16px] font-normal">
-        <thead>
-          <tr>
-            <th>訂單編號</th>
-            <th>聯絡人</th>
-            <th>聯絡地址</th>
-            <th>電子郵件</th>
-            <th>訂單品項</th>
-            <th>訂單日期</th>
-            <th>訂單狀態</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody id="order-list"></tbody>
-      </table>
+      <div class="container overflow-x-scroll">
+        <table class="w-[1100px] text-[16px] font-normal">
+          <thead>
+            <tr>
+              <th>訂單編號</th>
+              <th>聯絡人</th>
+              <th>聯絡地址</th>
+              <th>電子郵件</th>
+              <th>訂單品項</th>
+              <th>訂單日期</th>
+              <th>訂單狀態</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="order-list"></tbody>
+        </table>
+      </div>
     </section>
   </body>
   <!-- Load c3.css -->

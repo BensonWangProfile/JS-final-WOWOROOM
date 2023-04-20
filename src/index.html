@@ -27,14 +27,16 @@
     <!-- Navbar -->
     <section>
       <div
-        class="container flex flex-row items-center justify-between pb-9 pt-10"
+        class="container flex flex-row items-center justify-between px-5 pb-9 pt-10 xl:px-0"
       >
         <h1 class="text-2xl font-bold">WOWOROOM</h1>
-        <ul class="flex flex-row items-center gap-12">
-          <li><a href="">床墊優勢</a></li>
-          <li><a href="">好評推薦</a></li>
-          <li><a href="">運送方式</a></li>
-          <li><a href="">立即預訂</a></li>
+        <ul class="flex flex-row items-center gap-12 text-[20px]">
+          <li>
+            <a class="hover:text-check" href="#bed-advantage">床墊優勢</a>
+          </li>
+          <li><a class="hover:text-check" href="#recommend">好評推薦</a></li>
+          <li><a class="hover:text-check" href="#shipping-way">運送方式</a></li>
+          <li><a class="hover:text-check" href="#shipping-way">立即預訂</a></li>
         </ul>
       </div>
       <div class="mb-[31px] h-10 w-full bg-black"></div>
@@ -53,31 +55,31 @@
       </p>
     </section>
     <!-- 床墊優勢 -->
-    <section class="container mb-[60px]">
+    <section class="container mb-[60px]" id="bed-advantage">
       <h2 class="mb-[28px]">床墊優勢</h2>
-      <div class="flex flex-row justify-between gap-[30px]">
-        <div class="flex flex-col items-center gap-2">
+      <ul class="flex flex-row justify-between gap-[30px]">
+        <li class="flex flex-col items-center gap-2">
           <img
             src="https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/tR426y5.png?raw=true"
             alt=""
           />
           <p class="text-[20px]">原木料環保</p>
-        </div>
-        <div class="flex flex-col items-center gap-2">
+        </li>
+        <li class="flex flex-col items-center gap-2">
           <img
             src="https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/Fd2MiBb.png?raw=true"
             alt=""
           />
           <p class="text-[20px]">原木料環保</p>
-        </div>
-        <div class="flex flex-col items-center gap-2">
+        </li>
+        <li class="flex flex-col items-center gap-2">
           <img
             src="https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/5n1uTFh.png?raw=true"
             alt=""
           />
           <p class="text-[20px]">原木料環保</p>
-        </div>
-      </div>
+        </li>
+      </ul>
     </section>
 
     <!---------------------- Wei ------------------------>
@@ -168,7 +170,7 @@
       </section>
     </section>
     <!-- 好評推薦 -->
-    <section class="bg-primary">
+    <section class="bg-primary" id="recommend">
       <section class="container">
         <section class="py-12">
           <h2 class="mb-[30px] text-white">好評推薦</h2>
@@ -394,7 +396,7 @@
     <!---------------------- Wei ------------------------>
     <!---------------------- Nancy ------------------------>
     <!-- 運送方式 -->
-    <section class="container mb-[72px]">
+    <section class="container mb-[72px]" id="shipping-way">
       <h2 class="h2 my-8 text-center">運送方式</h2>
       <div class="grid grid-cols-12 gap-7 pb-[72px]">
         <div class="col-span-2"></div>
@@ -631,10 +633,17 @@
       </section>
     </section>
   </body>
-  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.4.js"
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"
+  ></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script type="module"src="index.js
-  "></script>
+  <script
+    type="module"
+    src="index.js
+  "
+  ></script>
 </html>

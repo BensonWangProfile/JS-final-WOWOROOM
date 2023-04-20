@@ -14,7 +14,7 @@ const Toast = Swal.mixin({
   showConfirmButton: false,
   timer: 1500,
   timerProgressBar: true,
-  position: 'bottom-end',
+  position: 'top-end',
   didOpen: (toast) => {
     // eslint-disable-next-line no-undef
     toast.addEventListener('mouseenter', Swal.stopTimer)
