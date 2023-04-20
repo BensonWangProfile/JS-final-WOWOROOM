@@ -190,7 +190,8 @@ function addToCart(e) {
       })
       // console.log(idArr)
       if (idArr.indexOf(id) !== -1) {
-        alert('購物車已有該項商品，請到購物車修改數量')
+        // alert('購物車已有該項商品，請到購物車修改數量')
+        Swal.fire('購物車已有該項商品，請到購物車修改數量')
       } else {
         // alert('新增成功')
         // eslint-disable-next-line no-undef
@@ -273,7 +274,8 @@ function deleteItem(e) {
 // 刪除全部購物車
 function deleteAll() {
   if (cartData.length === 0) {
-    alert('購物車裡沒有商品')
+    // alert('購物車裡沒有商品')
+    Swal.fire('購物車裡沒有商品')
     return
   }
   // eslint-disable-next-line no-undef
@@ -283,7 +285,7 @@ function deleteAll() {
       // console.log(res)
       getCartList()
       // eslint-disable-next-line no-undef
-      Swal.fire('已刪除全部商品', '購物車裡沒有商品', 'love')
+      Swal.fire('已刪除全部商品', '購物車裡沒有商品')
     })
     .catch((err) => {
       // console.log(err)
@@ -346,7 +348,7 @@ const toastAlertOk = () => {
   const Toast = Swal.mixin({
     toast: true,
     showConfirmButton: false,
-    timer: 10000,
+    timer: 3000,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.addEventListener("mouseenter", Swal.stopTimer);
@@ -363,7 +365,7 @@ const toastAlertCartNoNum = () => {
   const Toast = Swal.mixin({
     toast: true,
     showConfirmButton: false,
-    timer: 10000,
+    timer: 3000,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.addEventListener("mouseenter", Swal.stopTimer);
