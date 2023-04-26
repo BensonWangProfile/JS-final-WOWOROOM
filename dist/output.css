@@ -703,6 +703,10 @@ th {
   margin-bottom: 0.5rem;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .mb-7 {
   margin-bottom: 1.75rem;
 }
@@ -761,6 +765,14 @@ th {
 
 .mr-\[55px\] {
   margin-right: 55px;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .block {
@@ -851,16 +863,8 @@ th {
   width: 40px;
 }
 
-.w-\[50\%\] {
-  width: 50%;
-}
-
 .w-\[56px\] {
   width: 56px;
-}
-
-.w-\[65\%\] {
-  width: 65%;
 }
 
 .w-\[80\%\] {
@@ -869,6 +873,10 @@ th {
 
 .w-\[80px\] {
   width: 80px;
+}
+
+.w-\[94\%\] {
+  width: 94%;
 }
 
 .w-full {
@@ -953,6 +961,10 @@ th {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
 }
 
 .overflow-x-scroll {
@@ -1102,10 +1114,6 @@ th {
   padding-bottom: 15px;
 }
 
-.pb-2 {
-  padding-bottom: 0.5rem;
-}
-
 .pb-9 {
   padding-bottom: 2.25rem;
 }
@@ -1241,6 +1249,10 @@ th {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .hover\:bg-\[\#e74925\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(231 73 37 / var(--tw-bg-opacity));
@@ -1264,4 +1276,14 @@ th {
 .focus\:text-lightPurple:focus {
   --tw-text-opacity: 1;
   color: rgb(106 51 248 / var(--tw-text-opacity));
+}
+
+@media (min-width: 1024px) {
+  .lg\:w-\[50\%\] {
+    width: 50%;
+  }
+
+  .lg\:w-\[65\%\] {
+    width: 65%;
+  }
 }

@@ -34,3 +34,10 @@
     border: #000 3px solid; */
   }
 }
+@layer utilities {
+  @variants responsive {
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
