@@ -659,40 +659,12 @@ th {
   top: 0.75rem;
 }
 
-.top-10 {
-  top: 2.5rem;
-}
-
-.top-20 {
-  top: 5rem;
+.top-\[-300px\] {
+  top: -300px;
 }
 
 .top-\[108px\] {
   top: 108px;
-}
-
-.top-\[80px\] {
-  top: 80px;
-}
-
-.top-\[90px\] {
-  top: 90px;
-}
-
-.top-\[-100\%\] {
-  top: -100%;
-}
-
-.top-\[-500px\] {
-  top: -500px;
-}
-
-.top-\[top-\\\[-100\\\%\\\]\] {
-  top: top-\[-100\%\];
-}
-
-.top-\[-300px\] {
-  top: -300px;
 }
 
 .z-10 {
@@ -995,10 +967,6 @@ th {
   gap: 30px;
 }
 
-.gap-10 {
-  gap: 2.5rem;
-}
-
 .self-end {
   align-self: flex-end;
 }
@@ -1084,21 +1052,6 @@ th {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-slate-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
-}
-
-.bg-gray-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
-}
-
-.bg-gray-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
-}
-
 .bg-\[url\(https\:\/\/github\.com\/hexschool\/js-training\/blob\/main\/\%E7\%AC\%AC\%E4\%B9\%9D\%E9\%80\%B1\%E4\%B8\%BB\%E7\%B7\%9A\%E4\%BB\%BB\%E5\%8B\%99\%E5\%9C\%96\%E5\%BA\%AB\/ExbKbSE\.png\?raw\=true\)\] {
   background-image: url(https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/ExbKbSE.png?raw=true);
 }
@@ -1122,10 +1075,6 @@ th {
 
 .p-\[10px\] {
   padding: 10px;
-}
-
-.p-5 {
-  padding: 1.25rem;
 }
 
 .px-3 {
@@ -1163,6 +1112,11 @@ th {
   padding-bottom: 1rem;
 }
 
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
 .py-\[10px\] {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -1171,16 +1125,6 @@ th {
 .py-\[15px\] {
   padding-top: 15px;
   padding-bottom: 15px;
-}
-
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
 }
 
 .pb-2 {
@@ -1353,20 +1297,12 @@ th {
 }
 
 @media (min-width: 768px) {
-  .md\:top-0 {
-    top: 0px;
-  }
-
   .md\:flex {
     display: flex;
   }
 
   .md\:hidden {
     display: none;
-  }
-
-  .md\:flex-row {
-    flex-direction: row;
   }
 }
 
