@@ -24,20 +24,47 @@
   </head>
   <body>
     <!---------------------- Benson ------------------------>
+    <div class="relative md:hidden">
+      <!-- phone -->
+      <ul
+        class="absolute left-0 right-0 top-[-300px] z-10 bg-secondary text-center text-[20px]"
+        id="navbar"
+      >
+        <li class="py-5">
+          <a class="hover:text-check" href="#bed-advantage">床墊優勢</a>
+        </li>
+        <li class="py-5">
+          <a class="hover:text-check" href="#recommend">好評推薦</a>
+        </li>
+        <li class="py-5">
+          <a class="hover:text-check" href="#shipping-way">運送方式</a>
+        </li>
+        <li class="py-5">
+          <a class="hover:text-check" href="#order-now">立即預訂</a>
+        </li>
+      </ul>
+    </div>
+
     <!-- Navbar -->
     <section>
       <div
         class="container flex flex-row items-center justify-between px-5 pb-9 pt-10 xl:px-0"
       >
         <h1 class="text-2xl font-bold">WOWOROOM</h1>
-        <ul class="flex flex-row items-center gap-12 text-[20px]">
+        <ul
+          class="hidden flex-row items-center gap-12 bg-white text-center text-[20px] md:flex"
+        >
           <li>
             <a class="hover:text-check" href="#bed-advantage">床墊優勢</a>
           </li>
           <li><a class="hover:text-check" href="#recommend">好評推薦</a></li>
           <li><a class="hover:text-check" href="#shipping-way">運送方式</a></li>
-          <li><a class="hover:text-check" href="#shipping-way">立即預訂</a></li>
+          <li><a class="hover:text-check" href="#order-now">立即預訂</a></li>
         </ul>
+        <i
+          class="fa-solid fa-bars cursor-pointer text-xl md:hidden"
+          id="toggleBar"
+        ></i>
       </div>
       <div class="mb-[31px] h-10 w-full bg-black"></div>
     </section>
@@ -453,7 +480,7 @@
       </div>
     </section>
     <!-- 篩選按鈕 -->
-    <section class="container">
+    <section class="container" id="order-now">
       <div class="grid grid-cols-4 gap-7">
         <div class="col-span-1">
           <select

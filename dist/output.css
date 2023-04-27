@@ -627,6 +627,10 @@ th {
   bottom: 3rem;
 }
 
+.left-0 {
+  left: 0px;
+}
+
 .left-\[52px\] {
   left: 52px;
 }
@@ -653,6 +657,18 @@ th {
 
 .top-3 {
   top: 0.75rem;
+}
+
+.top-\[-300px\] {
+  top: -300px;
+}
+
+.top-\[108px\] {
+  top: 108px;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .col-span-1 {
@@ -835,6 +851,10 @@ th {
   width: 100px;
 }
 
+.w-\[1100px\] {
+  width: 1100px;
+}
+
 .w-\[160px\] {
   width: 160px;
 }
@@ -873,22 +893,6 @@ th {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[800px\] {
-  width: 800px;
-}
-
-.w-\[1000px\] {
-  width: 1000px;
-}
-
-.w-\[1110px\] {
-  width: 1110px;
-}
-
-.w-\[1100px\] {
-  width: 1100px;
 }
 
 .min-w-\[350px\] {
@@ -1108,6 +1112,11 @@ th {
   padding-bottom: 1rem;
 }
 
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
 .py-\[10px\] {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -1156,10 +1165,6 @@ th {
 
 .text-center {
   text-align: center;
-}
-
-.text-right {
-  text-align: right;
 }
 
 .text-2xl {
@@ -1292,18 +1297,16 @@ th {
 }
 
 @media (min-width: 768px) {
-  .md\:px-3 {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
   }
 }
 
 @media (min-width: 1024px) {
-  .lg\:px-3 {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-  }
-
   .lg\:px-5 {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
@@ -1314,10 +1317,5 @@ th {
   .xl\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
-  }
-
-  .xl\:px-3 {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
   }
 }

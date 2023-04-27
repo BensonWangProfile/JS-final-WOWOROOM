@@ -4,27 +4,49 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../dist/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../dist/output.css" />
     <title>WOWOROOM</title>
   </head>
   <body>
     <!---------------------- Benson ------------------------>
+    <div class="relative md:hidden">
+      <!-- phone -->
+      <ul
+        class="absolute left-0 right-0 top-[-300px] z-10 bg-secondary text-center text-[20px]"
+        id="navbar"
+      >
+        <li class="py-5">
+          <a href="#" class="focus:text-lightPurple">後台管理</a>
+        </li>
+        <li class="py-5">
+          <a href="#" class="focus:text-lightPurple">管理員登入</a>
+        </li>
+      </ul>
+    </div>
     <!-- Navbar -->
     <section>
       <div
         class="container flex flex-row items-center justify-between px-5 pb-9 pt-10 xl:px-0"
       >
         <h1 class="text-2xl font-bold">WOWOROOM</h1>
-        <ul class="flex flex-row items-center gap-12 text-[20px]">
+        <ul class="hidden flex-row items-center gap-12 text-[20px] md:flex">
           <li><a href="#" class="focus:text-lightPurple">後台管理</a></li>
           <li><a href="#" class="focus:text-lightPurple">管理員登入</a></li>
         </ul>
+        <i
+          class="fa-solid fa-bars cursor-pointer text-xl md:hidden"
+          id="toggleBar"
+        ></i>
       </div>
       <div class="mb-[60px] h-10 w-full bg-black"></div>
     </section>

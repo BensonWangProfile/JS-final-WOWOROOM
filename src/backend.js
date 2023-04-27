@@ -1,5 +1,14 @@
 import { alertError, Toast } from './sweetAlert.js'
 
+// bar 樣式事件監聽
+const toggleBar = document.querySelector('#toggleBar')
+const navbar = document.querySelector('#navbar')
+
+toggleBar.addEventListener('click', () => {
+  navbar.classList.toggle('top-[-300px]')
+  navbar.classList.toggle('top-[108px]')
+})
+
 // // API 相關資料
 const url = 'https://livejs-api.hexschool.io/api/livejs/v1/admin/'
 const urlPath = 'benson'

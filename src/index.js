@@ -12,7 +12,6 @@ const token = {
 }
 
 // 綁定DOM元素
-
 const productCategory = document.querySelector('.productCategory')
 const list = document.querySelector('.list')
 const cartList = document.querySelector('.cartList')
@@ -327,9 +326,9 @@ const constraints = {
       message: '^請輸入10碼'
     },
     format: {
-        pattern: "^09\\d{8}$",
-        message: "^請輸入09開頭手機號碼，ex:0912345678，共十碼"
-      }
+      pattern: '^09\\d{8}$',
+      message: '^請輸入09開頭手機號碼，ex:0912345678，共十碼'
+    }
   },
   account: {
     presence: { message: '^必填欄位' },
@@ -351,16 +350,16 @@ const toastAlertOk = () => {
     timer: 3000,
     timerProgressBar: true,
     didOpen: (toast) => {
-      toast.addEventListener("mouseenter", Swal.stopTimer);
-      toast.addEventListener("mouseleave", Swal.resumeTimer);
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
-  });
+  })
 
   Toast.fire({
-    icon: "success",
-    title: "成功送出訂單"
-  });
-};
+    icon: 'success',
+    title: '成功送出訂單'
+  })
+}
 const toastAlertCartNoNum = () => {
   const Toast = Swal.mixin({
     toast: true,
@@ -368,16 +367,16 @@ const toastAlertCartNoNum = () => {
     timer: 3000,
     timerProgressBar: true,
     didOpen: (toast) => {
-      toast.addEventListener("mouseenter", Swal.stopTimer);
-      toast.addEventListener("mouseleave", Swal.resumeTimer);
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
-  });
+  })
 
   Toast.fire({
-    icon: "error",
-    title: "當前您的購物車沒有訂單"
-  });
-};
+    icon: 'error',
+    title: '當前您的購物車沒有訂單'
+  })
+}
 
 // 檢查
 function checkValue() {
@@ -411,16 +410,17 @@ function checkValue() {
         console.log(response)
         toastAlertOk()
         getCartList()
-
       })
       .catch(function (error) {
         // 失敗會回傳的內容
         console.log(error)
         console.log(obj)
-        if(error.response.data.message==="當前購物車內沒有產品，所以無法送出訂單 RRR ((((；゜Д゜)))"){
+        if (
+          error.response.data.message ===
+          '當前購物車內沒有產品，所以無法送出訂單 RRR ((((；゜Д゜)))'
+        ) {
           toastAlertCartNoNum()
         }
-
       })
   } else {
     // 驗證失敗，呈現在畫面上
@@ -446,3 +446,12 @@ list.addEventListener('click', addToCart)
 cartList.addEventListener('change', editNum)
 cartList.addEventListener('click', deleteItem)
 deleteBtn.addEventListener('click', deleteAll)
+
+// bar 樣式事件監聽
+const toggleBar = document.querySelector('#toggleBar')
+const navbar = document.querySelector('#navbar')
+
+toggleBar.addEventListener('click', () => {
+  navbar.classList.toggle('top-[-300px]')
+  navbar.classList.toggle('top-[108px]')
+})
