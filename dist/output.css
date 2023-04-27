@@ -895,6 +895,22 @@ th {
   width: 100%;
 }
 
+.w-\[800px\] {
+  width: 800px;
+}
+
+.w-\[1000px\] {
+  width: 1000px;
+}
+
+.w-\[1110px\] {
+  width: 1110px;
+}
+
+.w-\[1100px\] {
+  width: 1100px;
+}
+
 .min-w-\[350px\] {
   min-width: 350px;
 }
@@ -1167,6 +1183,10 @@ th {
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1303,10 +1323,17 @@ th {
 
   .md\:hidden {
     display: none;
+
   }
 }
 
 @media (min-width: 1024px) {
+
+  .lg\:px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
   .lg\:px-5 {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
@@ -1317,5 +1344,10 @@ th {
   .xl\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .xl\:px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }
